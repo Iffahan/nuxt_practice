@@ -18,6 +18,9 @@
     <nuxt-link to="/about" class="mt-4 text-white underline">
       Go to About Page
     </nuxt-link>
+    <nuxt-link to="/todos" class="mt-4 text-white underline">
+      Go to Todos Page
+    </nuxt-link>
   </div>
 </template>
 
