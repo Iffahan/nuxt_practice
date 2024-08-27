@@ -16,17 +16,24 @@
 <script lang="ts">
 import Vue from 'vue'
 
+interface Todo {
+    userId: number;
+    id: number;
+    title: string;
+    completed: boolean;
+}
+
 export default Vue.extend({
     data() {
         return {
-            todos: [],
+            todos: [] as Todo[],
             loading: true,
         }
     },
     async mounted() {
         try {
-            const response = await this.$axios.$get('https://jsonplaceholder.typicode.com/todos')
-            this.todos = response.slice(0, 12) // Get only the first 12 todos for display
+            const response = await this.$axios.$get<Todo[]>('https://jsonplaceholder.typicode.com/todos')
+            this.todos = response.slice(0, 12)
         } catch (error) {
             console.error('Error fetching todos:', error)
         } finally {
@@ -35,9 +42,3 @@ export default Vue.extend({
     },
 })
 </script>
-
-<style scoped>
-body {
-    font-family: 'Inter', sans-serif;
-}
-</style>
