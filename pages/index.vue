@@ -1,5 +1,6 @@
 <template>
-  <div class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-500">
+  <div
+    class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-500 space-y-4">
     <h1 class="text-2xl font-bold text-white">{{ message }}</h1>
     <div class="bg-white p-8 rounded-lg shadow-lg flex items-center justify-between w-64 h-24">
       <button @click="decrementCount"
@@ -14,6 +15,9 @@
         +
       </button>
     </div>
+    <nuxt-link to="/about" class="mt-4 text-white underline">
+      Go to About Page
+    </nuxt-link>
   </div>
 </template>
 
@@ -21,7 +25,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'CounterPage',
+  name: 'IndexPage',
   data() {
     return {
       count: 0,
